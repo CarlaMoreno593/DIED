@@ -1,0 +1,73 @@
+-Inciso 1:
+	
+	public void m1(int n) {
+
+		N operaciones 
+		for(int i =0;i<n;i++) {
+			System.out.println(i); -> 1 operacion
+		}
+	}
+
+	O(N*1) -> O(N)
+
+-Inciso 2:
+
+	public void m2(int n) {
+
+		N/2 operaciones -> Recorre la mitad de N ya que incrementa de a 2
+		for(int i =0;i<n;i+=2) {
+
+			System.out.println(i); -> 1 operación
+		
+		}
+	}
+
+	O(N/2 * 1) = O(N/2)
+
+-Inciso 3:
+	
+	public void m3(int n) {
+
+		N^N iteraciones
+		for(int i =0;i<n*n;i++) {
+			System.out.println(i); -> 1 operación
+		}
+	}
+
+	O(N^2)
+
+-Inciso 4:
+	
+	public void m4(int n) {
+
+		N iteraciones
+		for(int i =0;i<n;i++) {
+
+			i iteraciones
+			for(int j =0;j<i;j++) {
+				System.out.println(i+ " _ "+ j); -> 1 operación
+			}
+
+		}
+
+	}
+
+	0 + 1 + 2 + 3 + ... + N -> O(N*(N-1)/2) casi lineal, menor a cuadrática
+
+-Inciso 5:
+	
+	public void m5(int n) {
+
+		N^2 operaciones
+		for(int i =0;i<n*n;i++) {
+
+			i operaciones
+			for(int j =0;j<i;j++) {
+				System.out.println(i+ " _ "+ j);
+			}
+		}
+
+	}
+
+	1 + 2 + 3 + 4 + ... + N^2 -> N^2*(N^2-1)/2 -> Casi cuadrada, menor a cúbica.
+

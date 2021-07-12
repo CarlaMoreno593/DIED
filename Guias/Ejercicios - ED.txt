@@ -1,0 +1,193 @@
+Ejercicio 1:
+	
+	Calcular la media movil 1. Si tengo un registro o sensor, A[] o B[]
+	se busca saber como viene evolucionando la cosa. 
+
+	El promedio indica si aumenta, disminuye o se estabiliza. Genera una función que genera otra función, con promedios.
+
+	Resolver por eclipse.
+
+	Informacion: contiene información respecto a cuanto demoró la ejecución de Registro.
+
+Fibonacci Lineal:
+	
+	public static long fibo (int n,int x,int y) {
+		if (n==0) return 0 ;
+		if (n<=2) return x+y;
+		return fibo(n-1,y,x+y);
+	}
+
+	public static long fibo (int n){
+		return fibo(n,0,1);
+	}
+
+Función de Ackerman:
+
+	public static long ack (int n, m){
+		if (n==0)
+			return (m+1);
+		else if (m==0)
+				return ack(n-1,1);
+			else
+				return ack(n-1,ack(n,m-1));
+	}
+
+Busqueda binaria:
+		
+	Arreglo debe estar ordenado.
+	El mejor caso es que esté en medio del arreglo
+	El peor caso, es que el valor buscado nunca sea el valor central hasta que esté en la ultima mitad (es decir, cuando el subproblema sea de tamaño 1)
+
+Arboles:
+	
+	cantidad de nodos
+	menor del árbol
+	suma de los nodos
+	cantidad de hojas
+	longitud rama más corta
+	altura
+	tamaño
+	vaciar
+	unir dos árboles binarios ( poner una raíz )
+
+Arbol binario de busqueda:
+
+	• Busqueda
+		• buscar
+		• buscarMin costo proporcional al camino ( N en peor caso)
+		• buscarMax
+		• buscarKesimo
+	• Eliminar
+		• eliminar
+
+		Proceso Borrar (a: arbol , x: clave)
+			Si a = null entonces “No está”
+			sino Si x < raiz(a) ......... Borrar (Subiz (a) , x )
+				sino Si x > raiz(a) ....... Borrar (Subde (a) , x)
+					sino Si Hijder (a) = null .......a = Subiz ( a)
+						sino Si Hijizq (a) = null .....a= Subde ( a)
+							sino Descender por rama Der de SubIz(a)
+		• eliminarMin
+		• eliminarMax
+	• Insertar
+		• Implica buscar
+
+		Proceso BuscarEInsertar (a: arbol , p:palabra)
+			Si a = null entonces
+			Colocar la palabra como raíz con punteros a lista nulos
+			sino Si p < raiz(a) entonces BuscarEInsertar (SubIZQ (a), p )
+				sino Si p > raiz(a) ....... BuscarEInsertar (SubDER (a) ,p)
+					sino Agregar línea en la lista correspondiente de a
+
+Arbol AVL:
+	
+	Crear arbol en base a una lista:
+	
+		-Usar un nodo para la raíz
+		-Generar el subárbol izquierdo con ni = n div 2 nodos utilizando la misma regla
+		-Generar el subárbol derecho con nd = n – ni – 1 nodos utilizando la misma regla
+
+Guía de ejemplo: Clase práctica
+	
+	-Ejercicio 1: Grafos
+
+		La idea es que si no son vecinos, las ciudades intermedias tengan población MAYOR A habitantes, si no cumple con esa condición, debo buscar en otra ciudad intermedia. 
+		NO LOS NODOS ORIGEN Y FINAL.
+
+		//Retorna lista de ciudades
+		camino(Ciudad c1, Ciudad c2, Int habitantes){
+
+			//Primero verifico si son adyacentes -> No hay dudas de que hay un camino.
+
+
+			//O si se 1 es adyacente de un intermedio, y ese intermedio es adyacente de c2... Recursiva
+
+			//Uso rutina guia
+
+			camino(Ciudad c1, Ciudad c2, int h, new ArrayList().add(c1));
+
+		}
+
+		//Recibe una lista de marcados, nodos ya recorridos.
+		camino(Ciudad c1, Ciudad c2, int h, List marcado){
+			//Busco lsitas de vertices adyacentes a c1.
+			ady = getAdyacentes(c1);
+
+			for(Ciudad c : ady){
+
+				if(c.equals(c2)){
+
+					return camino;
+				}
+				else{
+
+					if(c.habitantes>h){
+						//Puede ser parte de la solución
+						//Agrego como parte del camino
+						marcado.add(c);
+						//Llamo recursivamente al método. 
+						resultado = camino(c, c2, h, marcado);
+
+						if(resultado == null){
+							//No hay camino intermedio
+							marcado.remove(c);
+							//No forma parte del camino. 
+						}else{
+							return resultado;
+						}
+					}
+				}
+			}
+
+		}
+
+	-Ejercicio 2: DyV
+
+		Patrón: primer elemento con indice PAR, el segundo con IMPAR
+		Con eso, puedo saber donde está el que falta.
+
+		Siempre va a tener longitud impar.
+		El medio siempre va a ser la longitud/2
+
+		el medio podría ser el que es distinto del anterior o del siguiente.
+
+		Si el siguiente es igual:
+
+			Si estoy en impar, y el siguiente es impar:
+
+				El que falta está a la izquierda
+				Ya que los primeros dos elementos son la primer tupla y el orden es par-impar. como llegamos a impar-par, quiere decir que falta 1 que rompió el patron
+
+				En el medio paso algo
+
+			Si estoy en impar, y el anterior es mi igual (indice par):
+
+				Busco en el lado derecho.
+				Ya los anteriores vienen bien ordenados.
+
+			Caso base:
+
+				inicio == fin -> 1 elemento. 
+
+				fin<inicio -> no tiene solución -> -1
+
+				Centro es distinto del anterior y el siguiente-> ese es el índice.
+
+			Condición recursiva:
+
+				El medio es igual al anterior -> busco derecha
+				El medio es igual al siguiente -> busco izquierda
+
+
+alt-shift-R -> marcas la variable y te la cambia
+
+buscar backtracking -> programación dinámica.
+
+No se puede saber el orden en que se imprime un hashSet. Las que NO SEAN SALIDAS, verificar que no se puedan insertar dos veces 1 elemento -> SI ES UN SET. Depende de la implementación del equals.
+
+El ordenamiento dependerá de el comparador.
+
+el rehashing se hace cuando la ocupación supere el factor de carga (ponele que 50%) no siempre.
+
+El problema de practica se pone en falso o verdadero. Da igual ya que no se evalúa.
+
